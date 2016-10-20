@@ -33,10 +33,9 @@ Below you will find basic setup and deployment instructions for this project. To
 
 ## Gulp
 
-### Environments
+Gulp is simple to run.  Each Gulp task is broken up under Gulp\tasks.  This keeps the task manager clean and concise.
 
-The environment can be set for `gulp default` and `gulp watch` with `--env=`.
-The default environment for the `gulp watch` is `local`.  If you are not running with a test or locally built API, use `prod` as the environment or whatever other environment you configure.  These can be set under `Gulp > enviornments`.  Take a look at the exsting ones (`prod` and `local`) for examples.
+To build the app, simply run `gulp`.
 
 ---
 
