@@ -23,8 +23,8 @@ Below you will find basic setup and deployment instructions for this project. To
   + `npm install -g bower`
   + `npm install -g gulp`
   + `bower install`
+  + `cordova plugin add cordova-plugin-geolocation`  
   + `gem install scss_lint`
-  + `cordova plugin add cordova-plugin-geolocation`
 ---
 
 ## Gulp
