@@ -1,0 +1,32 @@
+body {
+  background: lighten($divider-color, 20%);
+  color: $primary-text-color;
+}
+
+ion-view > ion-content {
+  background: lighten($divider-color, 20%);
+  color: $primary-color-text;
+
+  .text-muted {
+    color: darken($primary-color-text, 15%);
+  }
+
+  &.day {
+    background: linear-gradient(to bottom, #87e0fd 0%,#05abe0 100%);
+  }
+
+  &.night {
+    background: linear-gradient(to bottom, #45484d 0%,#000000 100%);
+  } 
+
+  &.day,
+  &.night {
+    h1,
+    h2,
+    h3,
+    h4,
+    input {
+      color: $primary-color-text !important;
+    }    
+  }
+}

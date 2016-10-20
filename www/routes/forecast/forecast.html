@@ -1,0 +1,52 @@
+
+<ion-view>
+  <ion-content ng-class="time">
+    <section>
+      <location></location>
+    </section>
+    <section ng-if="processing">
+      <div class="row">
+        <div class="col text-center">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section ng-show="!processing">
+      <div class="row"> 
+        <div class="col text-center">
+          <h4>Currently</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-80 col-offset-10 text-center"><img ng-src="assets/images/{{getSvgIcon(forecast.currently.icon)}}.svg"/></div>
+      </div>
+      <div class="row">
+        <div class="col col-50 col-offset-25 text-center">
+          <h1>{{forecast.currently.temperature | number: 0}}&deg;</h1>
+        </div>
+      </div>
+      <div ng-repeat="day in forecast.daily.data" class="row">
+        <div class="col col-33">
+          <p>{{day.time * 1000 | dayFilter}}</p>
+        </div>
+        <div class="col col-25"><i ng-class="'wi-' + day.icon" class="wi"></i></div>
+        <div class="col col-33">
+          <div class="col col-50 text-left">{{day.temperatureMax | number: 0}}</div>
+          <div class="col col-50 text-right text-muted">{{day.temperatureMin | number: 0}}</div>
+        </div>
+      </div>
+    </section>
+  </ion-content>
+</ion-view>

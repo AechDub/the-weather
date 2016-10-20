@@ -1,0 +1,43 @@
+
+<ion-view>
+  <ion-content>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p>Please enter your location.</p>
+        </div>
+      </div>
+      <form name="locationForm" ng-submit="locationCtrl.setLocation()" novalidate="novalidate">
+        <div class="row">
+          <div class="input-field col">
+            <input type="text" id="city" ng-model="city" required="required" class="validate"/>
+            <label for="city">City</label>
+            <div ng-messages="locationForm.city.$error.required">
+              <div ng-message="required">City is required                          </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col">
+            <input type="text" id="state" ng-model="state" required="required" max-length="2" class="validate"/>
+            <label for="state">State</label>
+            <div ng-messages="locationForm.state.$error.required">
+              <div ng-message="required">State is required                                        </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="processed" class="row">
+          <div ng-class="{'red-text': error, 'green-text': success}" class="col s12">{{ message }}</div>
+        </div>
+        <div ng-if="processing" class="row">
+          <ion-spinner icon="spiral" class="spinner-energized">         </ion-spinner>
+        </div>
+        <div class="row">
+          <div class="col flex-center">
+            <button type="submit" class="btn btn-large waves-effect waves-light green">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>

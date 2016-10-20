@@ -1,0 +1,38 @@
+ion-view
+  ion-content(ng-class="time")
+    section
+      location
+
+    section(ng-if="processing")
+      .row
+        .col.text-center
+          .preloader-wrapper.big.active
+            .spinner-layer.spinner-blue-only
+              .circle-clipper.left
+                .circle
+              .gap-patch
+                .circle
+              .circle-clipper.right
+                .circle
+  
+    section(ng-show="!processing")
+      .row 
+        .col.text-center
+          h4 Currently
+      .row
+          .col.col-80.col-offset-10.text-center
+            img(ng-src="assets/images/{{getSvgIcon(forecast.currently.icon)}}.svg")
+      .row
+        .col.col-50.col-offset-25.text-center
+          h1 {{forecast.currently.temperature | number: 0}}&deg;
+
+      .row(ng-repeat="day in forecast.daily.data")
+        .col.col-33
+          p {{day.time * 1000 | dayFilter}}
+
+        .col.col-25
+          i.wi(ng-class="'wi-' + day.icon")
+
+        .col.col-33
+          .col.col-50.text-left {{day.temperatureMax | number: 0}}
+          .col.col-50.text-right.text-muted {{day.temperatureMin | number: 0}}

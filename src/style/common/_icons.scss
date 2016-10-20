@@ -1,0 +1,59 @@
+.wi-clear-day {
+  &::before {
+    content: "\f00d";  
+  }
+}
+
+.wi-clear-night {
+  &::before {
+    content: "\f02e";
+  }
+} 
+
+.wi-rain {
+  &::before {
+    content: "\f019";
+  }
+} 
+
+.wi-snow {
+  &::before {
+    content: "\f01b";
+  }
+} 
+
+.wi-sleet {
+  &::before {
+    content: "\f0b5";
+  }
+}
+
+.wi-wind {
+  &::before {
+    content: "\f050";
+  }
+}
+
+.wi-fog {
+  &::before {
+    content: "\f014";
+  }
+}
+
+.wi-cloudy {
+  &::before {
+    content: "\f013";
+  }
+}
+
+.wi-partly-cloudy-day {
+  &::before {
+    content: "\f002";
+  }
+}
+
+.wi-partly-cloudy-night {
+  &::before {
+    content: "\f081";
+  }
+}
