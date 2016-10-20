@@ -1,0 +1,31 @@
+section 
+  .row 
+    .col.text-right
+      h2(ng-click="changeLocation = !changeLocation")
+        i.fa.fa-map-marker
+        
+section(ng-show="changeLocation")
+  .row
+    .col
+      p We could not find your location.  Please enter it below.
+
+  form(name="locationForm" ng-submit="setLocation(city, state)" novalidate)
+    .row
+      .input-field.col
+        input.validate(type="text" id="city" ng-model="city" required)
+        label(for="city") City
+        div(ng-messages="locationForm.city.$error.required")
+          div(ng-message="required") City is required                          
+    .row
+      .input-field.col
+        input.validate(type="text" id="state" ng-model="state" required max-length="2")
+        label(for="state") State
+        div(ng-messages="locationForm.state.$error.required")
+          div(ng-message="required") State is required                                        
+
+    .row(ng-if="processed")
+      .col.s12(ng-class="{'red-text': error, 'green-text': success}") {{ message }}      
+
+    .row
+      .col.flex-center
+        button.btn.btn-large.waves-effect.waves-light.green(type="submit") Save

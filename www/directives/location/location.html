@@ -1,0 +1,43 @@
+
+<section> 
+  <div class="row"> 
+    <div class="col text-right">
+      <h2 ng-click="changeLocation = !changeLocation"><i class="fa fa-map-marker"></i></h2>
+    </div>
+  </div>
+</section>
+<section ng-show="changeLocation">
+  <div class="row">
+    <div class="col">
+      <p>We could not find your location.  Please enter it below.</p>
+    </div>
+  </div>
+  <form name="locationForm" ng-submit="setLocation(city, state)" novalidate="novalidate">
+    <div class="row">
+      <div class="input-field col">
+        <input type="text" id="city" ng-model="city" required="required" class="validate"/>
+        <label for="city">City</label>
+        <div ng-messages="locationForm.city.$error.required">
+          <div ng-message="required">City is required                          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col">
+        <input type="text" id="state" ng-model="state" required="required" max-length="2" class="validate"/>
+        <label for="state">State</label>
+        <div ng-messages="locationForm.state.$error.required">
+          <div ng-message="required">State is required                                        </div>
+        </div>
+      </div>
+    </div>
+    <div ng-if="processed" class="row">
+      <div ng-class="{'red-text': error, 'green-text': success}" class="col s12">{{ message }}      </div>
+    </div>
+    <div class="row">
+      <div class="col flex-center">
+        <button type="submit" class="btn btn-large waves-effect waves-light green">Save</button>
+      </div>
+    </div>
+  </form>
+</section>
